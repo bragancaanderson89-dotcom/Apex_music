@@ -2,7 +2,19 @@
 
 Player pessoal por URL para FiveM, independente de framework. Menu preto, branco e cinza com a fonte local `zsxMonTserrat` da base. Não reproduz áudio para outros jogadores e não cria entidades no mapa.
 
-<video src="./video/showcase.mp4" controls width="800"></video>
+## 📸 Preview
+
+<p align="center">
+  <img src="./screenshots/Shot1.png" width="850">
+</p>
+
+<p align="center">
+  <img src="./screenshots/Shot2.png" width="850">
+</p>
+
+<p align="center">
+  <img src="./screenshots/Shot3.png" width="850">
+</p>
 
 ## Uso
 
