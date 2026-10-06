@@ -1,0 +1,10 @@
+fx_version 'cerulean'
+game 'gta5'
+author 'APEX Music'
+description 'Player pessoal por URL, fila e disco animado'
+version '1.4.1'
+shared_script 'config.lua'
+client_script 'client.lua'
+server_script 'server.lua'
+ui_page 'web/index.html'
+files { 'web/index.html', 'web/style.css', 'web/core.js', 'web/providers.js', 'web/reactive.js', 'web/app.js', 'web/assets/default-cover.svg', 'web/assets/zsx-montserrat.ttf' }

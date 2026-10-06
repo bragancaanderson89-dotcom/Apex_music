@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="strict-origin-when-cross-origin"><title>APEX Music</title><link rel="stylesheet" href="style.css"></head>
+<body data-menu="closed">
+<svg class="icons" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+ <symbol id="i-play" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7z" fill="currentColor" stroke="none"/></symbol>
+ <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14" stroke-width="4"/></symbol>
+ <symbol id="i-next" viewBox="0 0 24 24"><path d="m5 6 10 6-10 6z" fill="currentColor" stroke="none"/><path d="M18 6v12"/></symbol>
+ <symbol id="i-prev" viewBox="0 0 24 24"><path d="m19 6-10 6 10 6z" fill="currentColor" stroke="none"/><path d="M6 6v12"/></symbol>
+ <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+ <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+ <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20 5c-3-3-6-1-8 1-2-2-5-4-8-1-5 5 2 10 8 15 6-5 13-10 8-15Z"/></symbol>
+ <symbol id="i-volume" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4zM17 8c3 2 3 6 0 8M20 5c5 4 5 10 0 14"/></symbol>
+ <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor" stroke="none"/></symbol>
+ <symbol id="i-disc" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M6 12a6 6 0 0 1 6-6M18 12a6 6 0 0 1-6 6"/></symbol>
+ <symbol id="i-source-youtube" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4.5" fill="currentColor" stroke="none"/><path d="m10 8 6 4-6 4Z" fill="#171717" stroke="none"/></symbol>
+ <symbol id="i-source-spotify" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor" stroke="none"/><path d="M6.3 9.1c3.8-1.2 7.7-.9 11.4 1M7 12.3c3.2-.9 6.7-.5 10 1M7.8 15.4c2.7-.6 5.5-.4 8.1.9" stroke="#171717" stroke-width="1.7"/></symbol>
+ <symbol id="i-source-direct" viewBox="0 0 24 24"><path d="M10 16V6l10-2v10M10 9l10-2"/><ellipse cx="6.8" cy="17" rx="3.2" ry="2.5" fill="currentColor" stroke="none"/><ellipse cx="16.8" cy="15" rx="3.2" ry="2.5" fill="currentColor" stroke="none"/></symbol>
+ <symbol id="i-link" viewBox="0 0 24 24"><path d="m9 15 6-6M8 16l-1 1a4 4 0 0 1-6-6l4-4a4 4 0 0 1 6 0M16 8l1-1a4 4 0 0 1 6 6l-4 4a4 4 0 0 1-6 0" transform="translate(1 0) scale(.92)"/></symbol>
+ <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M5 9V6h14l-3-3M19 15v3H5l3 3M19 6v5M5 18v-5"/></symbol>
+</defs></svg>
+<main id="panel" hidden aria-labelledby="music-title">
+ <header class="header"><div class="brand-mark"><svg><use href="#i-disc"/></svg></div><div class="brand"><h1 id="music-title">music<span>.</span></h1><p>SUA TRILHA NO JOGO</p></div><div class="header-right"><span class="personal"><i></i> Player pessoal</span><label class="hud-switch" title="Mostrar disco no canto da tela"><input id="hud-toggle" type="checkbox" checked><span></span>Disco na tela</label><button id="close" class="icon-button" aria-label="Fechar menu"><svg><use href="#i-close"/></svg></button></div></header>
+ <div class="workspace">
+  <section class="listening" aria-labelledby="listening-title"><div class="section-label"><span id="listening-title">AGORA TOCANDO</span><span id="source-badge" class="source-badge">Seu espaço</span></div>
+   <div class="art-stage"><div class="art-glow"></div><div class="record-pulse"><div id="hero-record" class="record"><span class="record-shine"></span><img class="cover record-cover" src="assets/default-cover.svg" alt="Capa da música"><span class="spindle"></span></div></div><div class="tonearm"><span></span></div><span class="rpm">33⅓ RPM</span></div>
+   <div class="track-heading"><h2 id="track-title">Sua próxima favorita.</h2><p id="track-artist">Cole um link e deixe o resto com a música.</p></div>
+   <div class="track-actions"><span id="playback-status" class="playback-status"><i></i>Pronto para ouvir</span><button id="favorite" class="icon-button" aria-label="Favoritar faixa" aria-pressed="false" disabled><svg><use href="#i-heart"/></svg></button></div>
+   <div class="listening-note"><span class="note-lines"><i></i><i></i><i></i><i></i></span><span>O menu fecha. A música continua.</span></div>
+  </section>
+  <section class="collection">
+   <form id="link-form" novalidate><div class="section-label"><label for="url">O QUE VAMOS OUVIR?</label><span class="supported">YouTube · Spotify · Outros</span></div><div class="url-field"><svg><use href="#i-link"/></svg><input id="url" type="text" inputmode="url" autocomplete="off" spellcheck="false" placeholder="Cole o link da sua música…" maxlength="2048"><button id="clear-url" type="button" class="icon-button" aria-label="Limpar link"><svg><use href="#i-close"/></svg></button></div><div class="link-actions"><button id="listen" class="primary" type="submit"><svg><use href="#i-play"/></svg>Ouvir agora</button><button id="enqueue" class="secondary" type="button"><svg><use href="#i-plus"/></svg>Adicionar à fila</button></div><details id="custom-details"><summary>Personalizar nome e capa <span>+</span></summary><div class="custom-fields"><input id="custom-title" maxlength="180" placeholder="Nome da música (opcional)" aria-label="Nome personalizado"><input id="custom-cover" maxlength="2048" placeholder="URL da capa (opcional)" aria-label="URL personalizada da capa"></div></details></form>
+   <div id="cinema-settings" class="cinema-settings" data-active="true">
+    <label class="cinema-toggle hud-switch"><input id="cinema-toggle" type="checkbox" checked aria-label="Ativar som Cinema"><span></span><div><strong>Som Cinema</strong><small id="cinema-status">Graves e ambiência estéreo</small></div></label>
+    <label class="cinema-level" for="cinema-intensity"><span>Intensidade</span><input id="cinema-intensity" type="range" min="0" max="100" value="65" aria-label="Intensidade do som Cinema"><output id="cinema-value" for="cinema-intensity">65%</output></label>
+   </div>
+   <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+   <div class="library-heading"><div role="tablist" aria-label="Sua coleção"><button id="tab-queue" role="tab" aria-selected="true" data-tab="queue">Fila <span id="queue-count">0</span></button><button id="tab-favorites" role="tab" aria-selected="false" data-tab="favorites">Favoritas</button><button id="tab-recent" role="tab" aria-selected="false" data-tab="recent">Recentes</button></div><button id="clear-queue" class="text-button">Limpar</button></div>
+   <div id="library" class="library" role="tabpanel" aria-labelledby="tab-queue"><div class="empty"><svg><use href="#i-disc"/></svg><strong>Um link. Um novo momento.</strong><p>Adicione músicas e monte sua sequência.</p></div></div>
+   <div id="service-slot" hidden><div class="service-label"><span id="service-name">Player oficial</span><span>Clique no player se o serviço solicitar.</span></div><div id="service-space"></div></div>
+  </section>
+ </div>
+ <footer class="player"><div class="progress-row"><span id="elapsed">0:00</span><input id="seek" type="range" min="0" max="1000" value="0" aria-label="Posição da música" disabled><span id="duration">0:00</span></div><div class="transport"><div class="transport-left"><button id="stop" class="icon-button" aria-label="Parar música" disabled><svg><use href="#i-stop"/></svg></button><button id="repeat" class="icon-button" aria-label="Repetir faixa" aria-pressed="false"><svg><use href="#i-repeat"/></svg></button><span id="transport-label">Nada tocando</span></div><div class="transport-main"><button id="previous" class="icon-button" aria-label="Faixa anterior" disabled><svg><use href="#i-prev"/></svg></button><button id="toggle-play" class="play-button" aria-label="Reproduzir" disabled><svg><use href="#i-play"/></svg></button><button id="next" class="icon-button" aria-label="Próxima faixa" disabled><svg><use href="#i-next"/></svg></button></div><div class="volume"><button id="mute" class="icon-button" aria-label="Silenciar"><svg><use href="#i-volume"/></svg></button><input id="volume" type="range" min="0" max="100" value="45" aria-label="Volume"><span id="volume-value">45%</span></div></div></footer>
+ <div class="bottom-line"><span>APEX MUSIC <span class="version">01</span></span><span><kbd>ESC</kbd> fechar sem parar a música</span></div>
+</main>
+<div id="service-layer" aria-label="Player oficial do serviço"><div id="provider-container"></div></div>
+<aside id="hud" hidden data-phase="hidden" aria-label="Música atual"><div id="hud-info"><img class="cover" src="assets/default-cover.svg" alt=""><div><span id="hud-eyebrow">AGORA TOCANDO</span><strong id="hud-title"></strong><span id="hud-artist"></span></div><span class="hud-bars"><i></i><i></i><i></i></span></div><div class="hud-disc"><div class="disc-half half-left"><div class="disc-pulse"><div class="disc-surface"><img class="cover art-ring" src="assets/default-cover.svg" alt=""></div><span class="disc-provider" aria-hidden="true"><svg class="provider-symbol"><use href="#i-source-direct"/></svg></span></div></div><div class="disc-half half-right"><div class="disc-pulse"><div class="disc-surface"><img class="cover art-ring" src="assets/default-cover.svg" alt=""></div><span class="disc-provider" aria-hidden="true"><svg class="provider-symbol"><use href="#i-source-direct"/></svg></span></div></div></div></aside>
+<script src="core.js"></script><script src="reactive.js"></script><script src="providers.js"></script><script src="app.js"></script>
+</body></html>
